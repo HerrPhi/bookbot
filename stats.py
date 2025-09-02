@@ -2,3 +2,19 @@
 def get_num_words(text):
     words = text.split()
     return len(words)
+
+#function that counts how often each character appears
+def count_characters(text):
+    text_in_lowercase = text.lower()
+    words = text_in_lowercase.split()
+    #empty dictionary for all characters:
+    characters = dict()
+    for word in words:
+        letters = list(word)    #turns single word into a list of its letters
+        for letter in letters:      #iterate over all letters in a word
+            if letter in characters:
+                new_value = characters[letter] + 1
+                characters[letter] = new_value  #accesses the dictionary with letter as the key and updates the corresponding value
+            else:
+                characters[letter] = 1  #adds the character to the dictionary
+    return characters   #returns the dictionary with the characters and their counts
